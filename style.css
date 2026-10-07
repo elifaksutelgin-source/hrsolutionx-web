@@ -165,7 +165,8 @@ a {
 }
 
 .nav-link,
-    .nav a {
+    .nav a,
+    .lang-switch {
     font-family: var(--font-nav);
     font-size: 14px;
     font-weight: 600;
@@ -986,6 +987,9 @@ a {
         transition: right 0.3s ease;
         z-index: 999;
     }
+    .nav.open {
+    }
+    .nav.open .lang-switch { color: #ffffff !important; }
     .nav.open { right: 0; }
     .header-scrolled .hamburger span { background: #000000; }
     .nav.open ~ .hamburger span { background: #ffffff; }
@@ -1008,11 +1012,15 @@ a {
         z-index: 999 !important;
     }
     .nav.open {
+    }
+    .nav.open .lang-switch { color: #ffffff !important; }
+    .nav.open {
         right: 0 !important;
     }
 
     .nav-link,
-    .nav a {
+    .nav a,
+    .lang-switch {
         color: #ffffff !important;
         font-size: 1.2rem !important;
         margin: 1rem 0 !important;

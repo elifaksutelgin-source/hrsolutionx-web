@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hrsolutionx.com/sitemap.xml
+Sitemap: https://www.hrsolutionx.com/sitemap.xml
