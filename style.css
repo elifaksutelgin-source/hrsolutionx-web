@@ -191,6 +191,9 @@ a {
 }
 
 .nav-lang {
+    color: #111111;
+    cursor: pointer;
+
     font-family: var(--font-nav);
     font-size: 14px;
     font-weight: 700;
@@ -209,12 +212,7 @@ a {
     gap: 6px;
 }
 
-.hamburger span {
-    display: block;
-    width: 28px;
-    height: 1px;
-    background: var(--black);
-}
+.hamburger span { display: block; width: 25px; height: 3px; margin: 5px auto; transition: all 0.3s ease-in-out; background: #000000; }
 
 /* ========== HERO SECTION ========== */
 .hero {
@@ -968,12 +966,7 @@ a {
     cursor: pointer;
     z-index: 1000;
 }
-.hamburger span {
-    width: 100%;
-    height: 2px;
-    background: #ffffff;
-    transition: all 0.3s linear;
-}
+.hamburger span { display: block; width: 25px; height: 3px; margin: 5px auto; transition: all 0.3s ease-in-out; background: #000000; }
 @media (max-width: 768px) {
     .hamburger { display: flex; }
     .nav {
@@ -991,8 +984,8 @@ a {
     }
     .nav.open .lang-switch { color: #ffffff !important; }
     .nav.open { right: 0; }
-    .header-scrolled .hamburger span { background: #000000; }
-    .nav.open ~ .hamburger span { background: #ffffff; }
+    .header-scrolled .hamburger span { display: block; width: 25px; height: 3px; margin: 5px auto; transition: all 0.3s ease-in-out; background: #000000; }
+    .nav.open ~ .hamburger span { display: block; width: 25px; height: 3px; margin: 5px auto; transition: all 0.3s ease-in-out; background: #000000; }
 }
 
 /* HARD OVERRIDE FOR MOBILE MENU */
@@ -1041,4 +1034,29 @@ a {
 }
 
 
+}
+
+.nav.open span { color: #ffffff !important; }
+
+.hamburger span { background-color: #000000 !important; }
+.hamburger[aria-expanded="true"] span { background-color: #ffffff !important; }
+
+/* HARD OVERRIDE FOR MOBILE NAV LANG AND HAMBURGER */
+@media (max-width: 768px) {
+    .header .nav-lang {
+        color: #ffffff !important;
+        font-size: 1.2rem !important;
+        margin: 1rem 0 !important;
+        z-index: 1001 !important;
+    }
+    
+    .hamburger {
+        z-index: 1002 !important;
+    }
+    .hamburger span {
+        background-color: #000000 !important;
+    }
+    .hamburger[aria-expanded="true"] span {
+        background-color: #ffffff !important;
+    }
 }
