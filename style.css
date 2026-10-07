@@ -989,3 +989,24 @@ a {
     .header-scrolled .hamburger span { background: var(--color-black); }
     .nav.open ~ .hamburger span { background: var(--color-white); }
 }
+
+/* HARD OVERRIDE FOR MOBILE MENU */
+@media (max-width: 768px) {
+    .nav {
+        display: flex !important;
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        width: 250px !important;
+        height: 100vh !important;
+        background: var(--color-black) !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        transition: right 0.3s ease !important;
+        z-index: 999 !important;
+    }
+    .nav.open {
+        right: 0 !important;
+    }
+}
