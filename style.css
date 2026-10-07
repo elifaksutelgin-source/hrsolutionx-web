@@ -1009,6 +1009,13 @@ a {
     .nav.open {
         right: 0 !important;
     }
+
+    .nav-link {
+        color: #ffffff !important;
+        font-size: 1.2rem !important;
+        margin: 1rem 0 !important;
+    }
+
 }
 
 .minimal-contact-form button:hover {
