@@ -18,3 +18,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Mobile Menu Toggle
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('.nav');
+if (hamburger && nav) {
+    hamburger.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        const isOpen = nav.classList.contains('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+    });
+}
