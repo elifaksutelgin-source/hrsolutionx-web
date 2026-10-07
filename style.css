@@ -926,7 +926,7 @@ a {
     padding: 1rem 1.5rem;
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    color: var(--color-white);
+    color: #ffffff;
     font-family: inherit;
     font-size: 1rem;
     outline: none;
@@ -935,7 +935,7 @@ a {
 
 .minimal-contact-form .form-group input:focus,
 .minimal-contact-form .form-group textarea:focus {
-    border-color: var(--color-white);
+    border-color: #ffffff;
 }
 
 .minimal-contact-form .form-group input::placeholder,
@@ -969,7 +969,7 @@ a {
 .hamburger span {
     width: 100%;
     height: 2px;
-    background: var(--color-white);
+    background: #ffffff;
     transition: all 0.3s linear;
 }
 @media (max-width: 768px) {
@@ -978,7 +978,7 @@ a {
         position: fixed;
         top: 0; right: -100%;
         width: 250px; height: 100vh;
-        background: var(--color-black);
+        background: #000000;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -986,8 +986,8 @@ a {
         z-index: 999;
     }
     .nav.open { right: 0; }
-    .header-scrolled .hamburger span { background: var(--color-black); }
-    .nav.open ~ .hamburger span { background: var(--color-white); }
+    .header-scrolled .hamburger span { background: #000000; }
+    .nav.open ~ .hamburger span { background: #ffffff; }
 }
 
 /* HARD OVERRIDE FOR MOBILE MENU */
@@ -999,7 +999,7 @@ a {
         right: -100% !important;
         width: 250px !important;
         height: 100vh !important;
-        background: var(--color-black) !important;
+        background: #000000 !important;
         flex-direction: column !important;
         justify-content: center !important;
         align-items: center !important;
@@ -1013,12 +1013,12 @@ a {
 
 .minimal-contact-form button:hover {
     background-color: #444444 !important;
-    color: var(--color-white) !important;
+    color: #ffffff !important;
     transition: background-color 0.3s ease;
 }
 
 .cv-builder button:hover {
     background-color: #444444 !important;
-    color: var(--color-white) !important;
+    color: #ffffff !important;
     transition: background-color 0.3s ease;
 }
