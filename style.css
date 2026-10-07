@@ -1030,22 +1030,5 @@ a {
     transition: background-color 0.3s ease;
 }
 
-/* HARD OVERRIDE FOR LOGO SIZE */
-.logo {
-    display: flex;
-    align-items: center;
-    height: 70px; /* Header'i biraz daha genisletelim */
-}
-.brand-logo {
-    width: 280px !important;
-    max-width: none !important;
-    height: auto !important;
-    transform: scale(1.3) !important;
-    transform-origin: left center !important;
-}
-@media (max-width: 768px) {
-    .brand-logo {
-        width: 200px !important;
-        transform: scale(1.2) !important;
-    }
+
 }
