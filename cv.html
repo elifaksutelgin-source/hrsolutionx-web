@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Oluştur | HRSolutionX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body { background-color: #F8F9FA; }
+        .cv-header {
+            background: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .cv-header .logo { justify-content: center; text-decoration: none; display: flex; }
+        
+        .builder-wrapper {
+            max-width: 800px;
+            margin: 50px auto;
+            background: var(--white);
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .step-indicator::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 0; right: 0;
+            height: 1px; background: #eee; z-index: 1;
+        }
+        .step-dot {
+            width: 30px; height: 30px;
+            background: var(--white);
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-family: var(--font-nav); font-size: 12px; font-weight: 600;
+            position: relative; z-index: 2;
+            color: #ccc;
+            transition: var(--transition);
+        }
+        .step-dot.active {
+            border-color: var(--black);
+            background: var(--black);
+            color: var(--white);
+        }
+        .step-dot.completed {
+            border-color: var(--black);
+            color: var(--black);
+        }
+
+        .form-step { display: none; }
+        .form-step.active { display: block; animation: fadeIn 0.4s ease; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .form-title {
+            font-family: var(--font-heading);
+            font-size: 28px; font-weight: 600; color: var(--black);
+            margin-bottom: 10px;
+        }
+        .form-desc { font-size: 14px; color: var(--mid-gray); margin-bottom: 30px; }
+
+        .input-group { margin-bottom: 20px; }
+        .input-group label {
+            display: block; font-size: 12px; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1px; color: var(--black); margin-bottom: 8px;
+        }
+        .input-group input, .input-group textarea {
+            width: 100%; padding: 15px; border: 1px solid #ddd;
+            font-family: var(--font-body); font-size: 14px; box-sizing: border-box;
+            transition: var(--transition);
+        }
+        .input-group input:focus, .input-group textarea:focus {
+            outline: none; border-color: var(--black);
+        }
+        
+        .row { display: flex; gap: 20px; }
+        .col { flex: 1; }
+
+        .btn-group {
+            display: flex; justify-content: space-between; margin-top: 40px;
+        }
+        .btn-outline {
+            background: transparent; color: var(--black); border: 1px solid var(--black);
+            padding: 12px 30px; cursor: pointer; font-family: var(--font-nav);
+            font-size: 13px; font-weight: 600; letter-spacing: 1px; transition: var(--transition);
+        }
+        .btn-outline:hover { background: var(--black); color: var(--white); }
+        .btn-solid {
+            background: var(--black); color: var(--white); border: 1px solid var(--black);
+            padding: 12px 30px; cursor: pointer; font-family: var(--font-nav);
+            font-size: 13px; font-weight: 600; letter-spacing: 1px; transition: var(--transition);
+        }
+        .btn-solid:hover { background: transparent; color: var(--black); }
+
+        /* PDF TEMPLATE HIDDEN CONTAINER */
+        #pdf-export-container { display: none; }
+        
+        /* EXACT PDF STYLING */
+        .pdf-page {
+            width: 210mm;
+            min-height: 297mm;
+            background: #ffffff;
+            padding: 20mm;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            color: #111;
+        }
+        .pdf-header { border-bottom: 2px solid #111; padding-bottom: 10mm; margin-bottom: 10mm; display: flex; justify-content: space-between; align-items: flex-end; }
+        .pdf-name { font-family: 'Playfair Display', serif; font-size: 32pt; font-weight: 700; margin: 0; line-height: 1; }
+        .pdf-title { font-size: 12pt; font-weight: 300; letter-spacing: 2px; color: #555; margin-top: 5mm; text-transform: uppercase;}
+        .pdf-contact { text-align: right; font-size: 9pt; line-height: 1.6; color: #555; }
+        .pdf-section { margin-bottom: 10mm; }
+        .pdf-section-title { font-size: 11pt; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid #ddd; padding-bottom: 3mm; margin-bottom: 5mm; }
+        .pdf-item { margin-bottom: 5mm; }
+        .pdf-item-header { display: flex; justify-content: space-between; font-weight: 600; font-size: 11pt; margin-bottom: 2mm; }
+        .pdf-item-sub { font-style: italic; color: #555; font-size: 10pt; margin-bottom: 2mm; }
+        .pdf-item-desc { font-size: 9.5pt; line-height: 1.6; color: #333; }
+        .pdf-skills { font-size: 10pt; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+    <header class="cv-header">
+        <a href="index.html" class="logo">
+            <span class="logo-text"><span class="hr-bold">HR</span> SOLUTION</span>
+            <span class="logo-x"></span>
+        </a>
+    </header>
+
+    <main class="builder-wrapper">
+        <div class="step-indicator">
+            <div class="step-dot active" id="dot-1">1</div>
+            <div class="step-dot" id="dot-2">2</div>
+            <div class="step-dot" id="dot-3">3</div>
+            <div class="step-dot" id="dot-4">4</div>
+        </div>
+
+        <form id="cv-form">
+            <!-- STEP 1 -->
+            <div class="form-step active" id="step-1">
+                <h2 class="form-title">Kişisel Bilgiler</h2>
+                <p class="form-desc">Lütfen yönetici profilinize uygun temel iletişim bilgilerinizi girin.</p>
+                
+                <div class="row">
+                    <div class="input-group col">
+                        <label>Ad Soyad</label>
+                        <input type="text" id="cv-name" placeholder="Örn: Elif Aksüt ELGİN" required>
+                    </div>
+                    <div class="input-group col">
+                        <label>Mevcut Ünvan / Pozisyon</label>
+                        <input type="text" id="cv-title" placeholder="Örn: Kurucu & CEO" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group col">
+                        <label>E-Posta</label>
+                        <input type="email" id="cv-email" placeholder="Örn: elif@hrsolutionx.com" required>
+                    </div>
+                    <div class="input-group col">
+                        <label>Telefon</label>
+                        <input type="text" id="cv-phone" placeholder="Örn: +90 5XX XXX XX XX">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>LinkedIn Profil URL</label>
+                    <input type="text" id="cv-linkedin" placeholder="linkedin.com/in/profiliniz">
+                </div>
+                <div class="input-group">
+                    <label>Kariyer Özeti (Hakkımda)</label>
+                    <textarea id="cv-summary" rows="4" placeholder="Kariyer hedeflerinizi ve en güçlü özelliklerinizi 2-3 cümleyle özetleyin..."></textarea>
+                </div>
+                <div class="btn-group" style="justify-content: flex-end;">
+                    <button type="button" class="btn-solid" onclick="nextStep(2)">İLERİ</button>
+                </div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="form-step" id="step-2">
+                <h2 class="form-title">İş Deneyimi</h2>
+                <p class="form-desc">En son veya en önemli iş deneyiminizi ekleyin. (PDF'in şık durması için şimdilik ana deneyime odaklanıyoruz).</p>
+                
+                <div class="row">
+                    <div class="input-group col">
+                        <label>Şirket Adı</label>
+                        <input type="text" id="cv-company" placeholder="Örn: HRSolutionX">
+                    </div>
+                    <div class="input-group col">
+                        <label>Pozisyon</label>
+                        <input type="text" id="cv-role" placeholder="Örn: Managing Partner">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group col">
+                        <label>Çalışma Yılları</label>
+                        <input type="text" id="cv-dates" placeholder="Örn: 2018 - Günümüz">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Sorumluluklar ve Başarılar</label>
+                    <textarea id="cv-exp-desc" rows="5" placeholder="Gerçekleştirdiğiniz başarıları, yönettiğiniz bütçeyi veya ekipleri kısaca anlatın..."></textarea>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn-outline" onclick="prevStep(1)">GERİ</button>
+                    <button type="button" class="btn-solid" onclick="nextStep(3)">İLERİ</button>
+                </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="form-step" id="step-3">
+                <h2 class="form-title">Eğitim Bilgileri</h2>
+                <p class="form-desc">Akademik geçmişinizi girin.</p>
+                
+                <div class="input-group">
+                    <label>Üniversite / Kurum</label>
+                    <input type="text" id="cv-school" placeholder="Örn: Boğaziçi Üniversitesi">
+                </div>
+                <div class="row">
+                    <div class="input-group col">
+                        <label>Bölüm / Derece</label>
+                        <input type="text" id="cv-degree" placeholder="Örn: İşletme Yüksek Lisans (MBA)">
+                    </div>
+                    <div class="input-group col">
+                        <label>Mezuniyet Yılı</label>
+                        <input type="text" id="cv-grad" placeholder="Örn: 2008">
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn-outline" onclick="prevStep(2)">GERİ</button>
+                    <button type="button" class="btn-solid" onclick="nextStep(4)">İLERİ</button>
+                </div>
+            </div>
+
+            <!-- STEP 4 -->
+            <div class="form-step" id="step-4">
+                <h2 class="form-title">Uzmanlık ve Yetenekler</h2>
+                <p class="form-desc">Sizi öne çıkaran 4-5 temel yetkinliğinizi aralarına virgül koyarak yazın.</p>
+                
+                <div class="input-group">
+                    <label>Yetkinlikler</label>
+                    <textarea id="cv-skills" rows="3" placeholder="Örn: Stratejik İnsan Kaynakları, Üst Düzey Yönetici Seçimi, Organizasyonel Dönüşüm, Liderlik Koçluğu"></textarea>
+                </div>
+
+                <div class="upload-box" style="margin-top: 30px; padding: 25px; border: 1px dashed #bbb; text-align: center; background: #fdfdfd; transition: var(--transition);">
+                    <h3 style="font-family: var(--font-heading); font-size: 16px; margin-bottom: 8px; color: var(--black);">Hazır CV'nizi Yükleyin (Opsiyonel)</h3>
+                    <p style="font-size: 13px; color: var(--mid-gray); margin-bottom: 15px; line-height: 1.5;">Kendi hazırladığınız profesyonel bir özgeçmişiniz (PDF/Word) varsa, doğrudan yetenek havuzumuza ekleyebilirsiniz.</p>
+                    <input type="file" id="cv-file-upload" accept=".pdf,.doc,.docx" style="font-family: var(--font-body); font-size: 13px; color: var(--black); max-width: 100%;">
+                </div>
+
+
+                <div class="input-group" style="margin-top:30px; display:flex; gap:10px; align-items:center;">
+                    <input type="checkbox" id="cv-pool" checked style="width: auto;">
+                    <label for="cv-pool" style="margin:0; text-transform:none; letter-spacing:0; font-size:13px;">CV'min bir kopyası HRSolutionX global yönetici yetenek havuzuna eklensin.</label>
+                </div>
+
+                <div class="btn-group">
+                    <button type="button" class="btn-outline" onclick="prevStep(3)">GERİ</button>
+                    <button type="button" class="btn-solid" onclick="generatePDF()" style="background:var(--gold); border-color:var(--gold);">PDF OLUŞTUR VE İNDİR</button>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <!-- HIDDEN PDF TEMPLATE TO BE RENDERED BY HTML2PDF -->
+    <div id="pdf-export-container">
+        <div id="pdf-content" class="pdf-page">
+            <div class="pdf-header">
+                <div>
+                    <h1 class="pdf-name" id="out-name">Ad Soyad</h1>
+                    <div class="pdf-title" id="out-title">Ünvan</div>
+                </div>
+                <div class="pdf-contact">
+                    <div id="out-email">email@domain.com</div>
+                    <div id="out-phone">+90 5XX XXX XX XX</div>
+                    <div id="out-linkedin">linkedin.com/in/profil</div>
+                </div>
+            </div>
+            
+            <div class="pdf-section">
+                <div class="pdf-section-title">Kariyer Özeti</div>
+                <div class="pdf-item-desc" id="out-summary">
+                    Kariyer özeti metni buraya gelecek.
+                </div>
+            </div>
+
+            <div class="pdf-section">
+                <div class="pdf-section-title">Profesyonel Deneyim</div>
+                <div class="pdf-item">
+                    <div class="pdf-item-header">
+                        <span id="out-role">Pozisyon Adı</span>
+                        <span id="out-dates">Yıllar</span>
+                    </div>
+                    <div class="pdf-item-sub" id="out-company">Şirket Adı</div>
+                    <div class="pdf-item-desc" id="out-exp-desc">
+                        Sorumluluklar ve başarılar...
+                    </div>
+                </div>
+            </div>
+
+            <div class="pdf-section">
+                <div class="pdf-section-title">Eğitim</div>
+                <div class="pdf-item">
+                    <div class="pdf-item-header">
+                        <span id="out-school">Üniversite Adı</span>
+                        <span id="out-grad">Mezuniyet Yılı</span>
+                    </div>
+                    <div class="pdf-item-sub" id="out-degree">Derece ve Bölüm</div>
+                </div>
+            </div>
+
+            <div class="pdf-section">
+                <div class="pdf-section-title">Temel Yetkinlikler</div>
+                <div class="pdf-skills" id="out-skills">
+                    Yetenekler buraya gelecek.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function nextStep(step) {
+            document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+            document.getElementById('step-' + step).classList.add('active');
+            
+            document.querySelectorAll('.step-dot').forEach((el, index) => {
+                if(index < step) el.classList.add('active');
+                if(index < step - 1) el.classList.add('completed');
+                if(index >= step) {
+                    el.classList.remove('active');
+                    el.classList.remove('completed');
+                }
+            });
+        }
+
+        function prevStep(step) {
+            nextStep(step);
+        }
+
+        function generatePDF() {
+            // Populate hidden template
+            document.getElementById('out-name').innerText = document.getElementById('cv-name').value || 'İsim Belirtilmedi';
+            document.getElementById('out-title').innerText = document.getElementById('cv-title').value || '';
+            document.getElementById('out-email').innerText = document.getElementById('cv-email').value || '';
+            document.getElementById('out-phone').innerText = document.getElementById('cv-phone').value || '';
+            document.getElementById('out-linkedin').innerText = document.getElementById('cv-linkedin').value || '';
+            document.getElementById('out-summary').innerText = document.getElementById('cv-summary').value || '';
+            
+            document.getElementById('out-company').innerText = document.getElementById('cv-company').value || '';
+            document.getElementById('out-role').innerText = document.getElementById('cv-role').value || '';
+            document.getElementById('out-dates').innerText = document.getElementById('cv-dates').value || '';
+            document.getElementById('out-exp-desc').innerText = document.getElementById('cv-exp-desc').value || '';
+
+            document.getElementById('out-school').innerText = document.getElementById('cv-school').value || '';
+            document.getElementById('out-degree').innerText = document.getElementById('cv-degree').value || '';
+            document.getElementById('out-grad').innerText = document.getElementById('cv-grad').value || '';
+
+            document.getElementById('out-skills').innerText = document.getElementById('cv-skills').value || '';
+
+            // Generate PDF
+            const element = document.getElementById('pdf-content');
+            element.parentElement.style.display = 'block'; // Unhide temporarily for html2pdf
+            
+            const opt = {
+              margin:       0,
+              filename:     'Profesyonel-CV.pdf',
+              image:        { type: 'jpeg', quality: 0.98 },
+              html2canvas:  { scale: 2 },
+              jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Alert user that it's processing
+            const btn = document.querySelector('.btn-solid[onclick="generatePDF()"]');
+            const originalText = btn.innerText;
+            btn.innerText = "PDF OLUŞTURULUYOR...";
+            
+            html2pdf().set(opt).from(element).save().then(() => {
+                element.parentElement.style.display = 'none'; // Hide again
+                btn.innerText = originalText;
+                
+                // If pool checkbox is checked, fake an upload
+                if(document.getElementById('cv-pool').checked) {
+                    setTimeout(() => {
+                        alert("Harika! CV'niz başarıyla bilgisayarınıza indirildi ve HRSolutionX yetenek havuzuna güvenli bir şekilde eklendi.");
+                    }, 500);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

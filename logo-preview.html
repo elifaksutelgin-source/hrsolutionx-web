@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Logo Önizleme</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #FFFFFF;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+    .logo-text {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 32px;
+        font-weight: 300;
+        letter-spacing: 8px;
+        color: #222;
+        margin-right: 15px;
+    }
+    .logo-x {
+        position: relative;
+        width: 60px;
+        height: 140px; /* Uzun kolu barındırmak için uzun bir alan */
+        display: inline-block;
+    }
+    .logo-x::before, .logo-x::after {
+        content: '';
+        position: absolute;
+        top: 50%; left: 50%;
+        background: #222;
+        transform-origin: center;
+    }
+    
+    /* Kalın ve Kısa Kol */
+    .logo-x::before {
+        width: 6px;
+        height: 60px; /* Daha kısa */
+        transform: translate(-50%, -50%) rotate(35deg);
+    }
+    
+    /* İnce ve Uzun Kol */
+    .logo-x::after {
+        width: 1.5px;
+        height: 130px; /* Çok daha uzun, sınırları aşıyor */
+        transform: translate(-50%, -50%) rotate(-35deg);
+    }
+</style>
+</head>
+<body>
+    <div class="logo">
+        <span class="logo-text">HR SOLUTION</span>
+        <span class="logo-x"></span>
+    </div>
+</body>
+</html>

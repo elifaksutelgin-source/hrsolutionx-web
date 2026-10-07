@@ -1,0 +1,912 @@
+/* ========== CSS RESET & BASE ========== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #111111;
+    --dark-gray: #333333;
+    --mid-gray: #666666;
+    --light-gray: #EAEAEA;
+    --white: #FFFFFF;
+    --accent: #222222; /* Deep corporate navy/charcoal */
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-nav: 'Montserrat', sans-serif;
+    --gold: #B89047;
+    
+    --transition: all 0.4s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--dark-gray);
+    background: var(--white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+.section {
+    padding: 120px 0;
+}
+
+/* ========== BUTTONS ========== */
+.btn {
+    display: inline-block;
+    padding: 16px 36px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid var(--black);
+    transition: var(--transition);
+    background: transparent;
+    color: var(--black);
+}
+
+.btn-primary {
+    background: var(--black);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: var(--black);
+}
+
+/* ========== HEADER ========== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid transparent;
+    transition: var(--transition);
+}
+
+.header.scrolled {
+    border-bottom: 1px solid var(--light-gray);
+    padding: 5px 0;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+    transition: height 0.4s ease;
+}
+
+.header.scrolled .header-container {
+    height: 70px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.logo-text {
+    font-family: var(--font-nav);
+    font-size: 22px;
+    font-weight: 300; /* Ince yazi */
+    letter-spacing: 0.5px;
+    color: #555555; /* Ince kisin hafif gri */
+}
+
+.hr-bold {
+    font-weight: 700;
+    color: #111111; /* HR kismi simsiyah */
+    letter-spacing: -1px; /* H ve R birbirine cok yakin */
+    margin-right: 2px; /* SOLUTION ile arasinda hafif bosluk */
+}
+
+.logo-x {
+    position: relative;
+    width: 47px;
+    height: 60px;
+    display: inline-block;
+    margin-left: -17px; /* Daha da yanastirildi (letter-spacing boslugunu kapattik) */
+    font-size: 0;
+    color: transparent;
+    transform: translateY(1px); /* Gorsel olarak N harfinin tam merkezine hizalama */
+}
+
+.logo-x::before, .logo-x::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    height: 100%;
+    transform-origin: center;
+}
+
+/* Kalın Kol */
+.logo-x::before {
+    width: 5px;
+    background: linear-gradient(180deg, transparent 0%, rgba(17, 17, 17, 0.05) 15%, rgba(17, 17, 17, 0.9) 50%, rgba(17, 17, 17, 0.05) 85%, transparent 100%);
+    transform: translateX(-50%) rotate(38deg);
+}
+
+/* İnce Kol */
+.logo-x::after {
+    width: 2px;
+    background: linear-gradient(180deg, transparent 0%, rgba(17, 17, 17, 0.03) 15%, rgba(17, 17, 17, 0.65) 50%, rgba(17, 17, 17, 0.03) 85%, transparent 100%);
+    transform: translateX(-50%) rotate(-38deg);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-link {
+    font-family: var(--font-nav);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--black);
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--black);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-lang {
+    font-family: var(--font-nav);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-left: 1px solid var(--light-gray);
+    padding-left: 20px;
+    margin-left: -14px;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--black);
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 90px;
+    background: var(--white);
+    overflow: hidden;
+}
+
+.hero-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.hero-content h1 em {
+    font-style: italic;
+    color: var(--mid-gray);
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: var(--mid-gray);
+    max-width: 480px;
+    margin-bottom: 50px;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* Dynamic X Visual */
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    position: relative;
+}
+
+.dynamic-x-container {
+    width: 400px;
+    height: 400px;
+    position: relative;
+}
+
+.dynamic-x {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    animation: rotateX 40s linear infinite;
+}
+
+.x-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform-origin: center;
+}
+
+.line-1 {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(51, 51, 51, 0.05) 20%, rgba(51, 51, 51, 0.6) 50%, rgba(51, 51, 51, 0.05) 80%, transparent 100%);
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.line-2 {
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, rgba(51, 51, 51, 0.05) 20%, rgba(51, 51, 51, 0.4) 50%, rgba(51, 51, 51, 0.05) 80%, transparent 100%);
+    transform: translateY(-50%) rotate(-45deg);
+}
+
+/* Inner glow for X */
+.dynamic-x::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(51, 51, 51, 0.03) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+@keyframes rotateX {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ========== EXPERTISE ========== */
+.expertise {
+    background: #FAFAFA;
+    border-top: 1px solid var(--light-gray);
+}
+
+.section-title-area {
+    margin-bottom: 80px;
+    max-width: 600px;
+}
+
+.section-title-area h2 {
+    font-family: var(--font-heading);
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: 20px;
+}
+
+.section-title-area p {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--mid-gray);
+}
+
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.expertise-card {
+    padding-top: 30px;
+}
+
+.expertise-line {
+    width: 40px;
+    height: 1px;
+    background: var(--black);
+    margin-bottom: 30px;
+    transition: width 0.4s ease;
+}
+
+.expertise-card:hover .expertise-line {
+    width: 100%;
+    background: var(--mid-gray);
+}
+
+.expertise-card h3 {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: 16px;
+}
+
+.expertise-card p {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--mid-gray);
+    margin-bottom: 24px;
+    line-height: 1.7;
+}
+
+.read-more {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--black);
+}
+
+.read-more:hover {
+    color: var(--mid-gray);
+}
+
+/* ========== INSIGHTS ========== */
+.insights {
+    background: var(--white);
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.insight-item {
+    cursor: pointer;
+}
+
+.insight-image {
+    width: 100%;
+    height: 240px;
+    margin-bottom: 24px;
+    transition: transform 0.6s ease;
+}
+
+.insight-item:hover .insight-image {
+    transform: scale(1.02);
+}
+
+
+.insight-desc {
+    font-size: 14px;
+    color: var(--mid-gray);
+    line-height: 1.6;
+    margin-top: 15px;
+}
+.insight-meta {
+    font-family: var(--font-nav);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 1px;
+    margin: 20px 0 10px 0;
+}
+
+
+.insight-item h3 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1.3;
+}
+
+/* ========== CTA / CONTACT ========== */
+.contact-cta {
+    background: var(--black);
+    color: var(--white);
+    padding: 120px 0;
+    text-align: center;
+}
+
+.contact-container {
+    max-width: 800px;
+}
+
+.contact-cta h2 {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    font-weight: 400;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.contact-cta h2 em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-cta p {
+    font-size: 18px;
+    font-weight: 300;
+    opacity: 0.8;
+    margin-bottom: 50px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.contact-links a {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    color: var(--white);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 8px;
+}
+
+.contact-links a:hover {
+    border-color: var(--white);
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    background-color: var(--white);
+    padding: 80px 0 20px 0;
+    color: var(--black);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+}
+
+.footer-brand .logo {
+    margin-bottom: 16px;
+    display: flex;
+}
+.footer-brand 
+.logo-text {
+    font-family: var(--font-nav);
+    font-size: 22px;
+    font-weight: 300; /* Ince yazi */
+    letter-spacing: 0.5px;
+    color: #555555; /* Ince kisin hafif gri */
+}
+
+.hr-bold {
+    font-weight: 700;
+    color: #111111; /* HR kismi simsiyah */
+    letter-spacing: -1px; /* H ve R birbirine cok yakin */
+    margin-right: 2px; /* SOLUTION ile arasinda hafif bosluk */
+}
+
+.footer-brand p {
+    font-size: 14px;
+    color: var(--mid-gray);
+    line-height: 1.6;
+}
+
+.footer-links-group {
+    display: flex;
+    gap: 80px;
+}
+
+.footer-col h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--black);
+}
+
+.footer-col a {
+    display: block;
+    color: var(--mid-gray);
+    text-decoration: none;
+    margin-bottom: 12px;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.footer-col a:hover {
+    color: var(--black);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 50px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    font-size: 12px;
+    color: var(--mid-gray);
+}
+
+.legal-links {
+    display: flex;
+    gap: 20px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+    .hero-layout { grid-template-columns: 1fr; }
+    .hero-visual { height: 400px; }
+    .expertise-grid, .insights-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-content { flex-direction: column; gap: 60px; }
+}
+
+@media (max-width: 768px) {
+    .container { padding: 0 24px; }
+    .section { padding: 80px 0; }
+    
+    .nav { display: none; }
+    .hamburger { display: flex; }
+    
+    .hero-content h1 { font-size: 36px; }
+    .hero-visual { height: 300px; }
+    .dynamic-x-container { width: 250px; height: 250px; }
+    
+    .expertise-grid, .insights-grid { grid-template-columns: 1fr; }
+    .contact-cta h2 { font-size: 32px; }
+    .contact-links { flex-direction: column; gap: 20px; text-align: center; }
+    
+    .footer-links-group { flex-direction: column; gap: 40px; }
+    .footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 50px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    font-size: 12px;
+    color: var(--mid-gray);
+}
+}
+
+
+
+
+/* Services / Uzmanlıklar */
+.services {
+    padding: 100px 0;
+    background-color: var(--white);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.section-title p {
+    font-size: 16px;
+    color: var(--mid-gray);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.service-card {
+    background: #FAFAFA;
+    padding: 40px 30px;
+    border-top: 2px solid var(--black);
+    flex-basis: calc(33.333% - 30px);
+    box-sizing: border-box;
+    transition: var(--transition);
+}
+
+.service-card:hover {
+    background: var(--white);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    transform: translateY(-5px);
+}
+
+.service-icon {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    font-style: italic;
+    color: #E0E0E0;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.service-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: var(--mid-gray);
+    line-height: 1.7;
+    text-align: justify;
+}
+
+@media (max-width: 992px) {
+    .service-card {
+        flex-basis: calc(50% - 30px);
+    }
+}
+
+@media (max-width: 768px) {
+    .service-card {
+        flex-basis: 100%;
+    }
+}
+
+
+/* Hakkımızda / About */
+.about {
+    padding: 120px 0;
+    background-color: var(--white); /* Tamamen beyaz */
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--black);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.about-subtitle {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--gold); /* Or accent color */
+    line-height: 1.4;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+.about-text p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--mid-gray);
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.about-text strong {
+    color: var(--black);
+    font-weight: 600;
+}
+
+.about-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.visual-box {
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
+    background: linear-gradient(135deg, #111111 0%, #2a2a2a 100%);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.visual-box::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--black);
+    z-index: 0;
+}
+
+.experience-badge {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--white);
+}
+
+.experience-badge .number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.experience-badge .text {
+    display: block;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 992px) {
+    .about-container {
+        flex-direction: column;
+    }
+}
+
+/* ========== ARTICLE PAGES ========== */
+.article-hero {
+    height: 60vh;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 60px;
+}
+.article-hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to top, rgba(17,17,17,0.95) 0%, rgba(17,17,17,0.2) 100%);
+    z-index: 1;
+}
+.article-hero .container {
+    position: relative;
+    z-index: 2;
+    color: var(--white);
+    max-width: 900px;
+    margin: 0 auto;
+}
+.article-meta {
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.article-hero h1 {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    line-height: 1.2;
+    margin-bottom: 0;
+}
+.article-content {
+    max-width: 800px;
+    margin: 80px auto;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+}
+.article-content h2 {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    color: var(--black);
+    margin: 50px 0 20px 0;
+}
+.article-content p {
+    margin-bottom: 25px;
+    text-align: justify;
+}
+.article-content blockquote {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-style: italic;
+    color: var(--gold);
+    border-left: 4px solid var(--gold);
+    padding-left: 30px;
+    margin: 50px 0;
+    line-height: 1.5;
+}
+
+/* ========== 3. HRSolutionX BLACK ========== */
+        .black-section {
+            background: #000;
+            color: #fff;
+            padding: 120px 0;
+            text-align: center;
+            background-image: radial-gradient(circle at center, #111 0%, #000 70%);
+            border-top: 1px solid #333;
+        }
+        .black-icon {
+            font-size: 40px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        .black-title {
+            font-family: var(--font-heading);
+            font-size: 36px;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+        .black-title span { color: var(--gold); }
+        .black-desc {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: #888;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+        .black-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .black-btn:hover {
+            background: var(--gold);
+            color: #000;
+        }
+    
