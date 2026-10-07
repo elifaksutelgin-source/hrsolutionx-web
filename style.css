@@ -1010,3 +1010,15 @@ a {
         right: 0 !important;
     }
 }
+
+.minimal-contact-form button:hover {
+    background-color: #444444 !important;
+    color: var(--color-white) !important;
+    transition: background-color 0.3s ease;
+}
+
+.cv-builder button:hover {
+    background-color: #444444 !important;
+    color: var(--color-white) !important;
+    transition: background-color 0.3s ease;
+}
