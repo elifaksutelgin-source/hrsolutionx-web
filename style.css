@@ -16,7 +16,9 @@
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
     --font-nav: 'Montserrat', sans-serif;
-    --gold: #B89047;
+    --brand-accent: #1B5B63;
+    --brand-accent-light: #70AFB5;
+    --gold: var(--brand-accent); /* Compatibility with existing page styles */
     
     --transition: all 0.4s ease;
 }
@@ -818,6 +820,7 @@ a {
     z-index: 1;
 }
 .article-hero .container {
+    --gold: var(--brand-accent-light);
     position: relative;
     z-index: 2;
     color: var(--white);
@@ -868,6 +871,7 @@ a {
 
 /* ========== 3. HRSolutionX BLACK ========== */
         .black-section {
+            --gold: var(--brand-accent-light);
             background: #000;
             color: #fff;
             padding: 120px 0;
