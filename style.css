@@ -1207,3 +1207,8 @@ html[lang=en] .hero-content h1,html[lang=en] .hero-content p { text-align:left; 
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none!important; animation:none!important; } }
 
 .contact-cta input::placeholder,.contact-cta textarea::placeholder { color:#aaaaaa; }
+
+/* Complete bilingual content: readable links and long English headings. */
+.form-note a, .consent a { text-decoration: underline; text-underline-offset: 3px; }
+html[lang="en"] .service-detail h1 { overflow-wrap: break-word; }
+.localized-reference { padding-top: 90px; }
