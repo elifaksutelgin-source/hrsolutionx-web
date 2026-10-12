@@ -1096,3 +1096,78 @@ a {
     outline: 2px solid var(--brand-accent-light);
     outline-offset: 4px;
 }
+
+/* Service detail pages */
+.service-detail-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--brand-accent);
+    font-size: 14px;
+    line-height: 1.6;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+.service-detail-link:focus-visible,
+.service-detail a:focus-visible {
+    outline: 2px solid var(--brand-accent);
+    outline-offset: 4px;
+}
+.service-detail {
+    padding: 140px 0 80px;
+}
+.service-detail > .container {
+    max-width: 900px;
+}
+.service-breadcrumb {
+    font-size: 13px;
+    color: var(--mid-gray);
+    line-height: 1.8;
+    margin-bottom: 32px;
+}
+.service-breadcrumb a,
+.related-services a {
+    color: var(--brand-accent);
+}
+.service-detail h1 {
+    font-family: var(--font-heading);
+    color: var(--black);
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+.service-detail p {
+    color: var(--mid-gray);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+.service-detail .service-lead {
+    font-size: 19px;
+    margin-bottom: 40px;
+}
+.service-detail h2 {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1.35;
+    margin: 36px 0 16px;
+}
+.service-enquiry {
+    border-top: 1px solid var(--light-gray);
+    margin-top: 40px;
+    padding-top: 4px;
+}
+.related-services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 32px;
+    margin-top: 40px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+@media (max-width: 768px) {
+    .service-detail { padding-top: 110px; }
+    .service-detail h2 { font-size: 23px; }
+    .service-detail .btn { white-space: normal; }
+}
