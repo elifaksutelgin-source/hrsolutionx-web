@@ -235,7 +235,7 @@ a {
 
 .hero-content h1 {
     font-family: var(--font-heading);
-    font-size: clamp(36px, 3.6vw, 48px);
+    font-size: clamp(32px, 3vw, 40px);
     font-weight: 400;
     color: var(--black);
     line-height: 1.2;
@@ -589,7 +589,7 @@ a {
     .nav { display: none; }
     .hamburger { display: flex; }
     
-    .hero-content h1 { font-size: clamp(28px, 7.7vw, 32px); }
+    .hero-content h1 { font-size: clamp(25px, 6.8vw, 28px); }
     .hero-visual { height: 300px; }
     .dynamic-x-container { width: 250px; height: 250px; }
     
