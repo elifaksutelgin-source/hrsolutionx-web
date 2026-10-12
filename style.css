@@ -1068,3 +1068,31 @@ a {
         background-color: #ffffff !important;
     }
 }
+
+/* Corporate enquiry fields */
+.contact-cta .minimal-contact-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--white);
+    font-size: 14px;
+    line-height: 1.5;
+}
+.contact-cta .minimal-contact-form select {
+    width: 100%;
+    min-width: 0;
+    padding: 1rem 1.5rem;
+    background: var(--black);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--white);
+    font-family: inherit;
+    font-size: 1rem;
+}
+.contact-cta .minimal-contact-form :is(input, textarea, select):focus-visible {
+    outline: 2px solid var(--brand-accent-light);
+    outline-offset: 3px;
+    border-color: var(--brand-accent-light);
+}
+.contact-cta .minimal-contact-form button:focus-visible {
+    outline: 2px solid var(--brand-accent-light);
+    outline-offset: 4px;
+}
