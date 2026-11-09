@@ -1212,3 +1212,115 @@ html[lang=en] .hero-content h1,html[lang=en] .hero-content p { text-align:left; 
 .form-note a, .consent a { text-decoration: underline; text-underline-offset: 3px; }
 html[lang="en"] .service-detail h1 { overflow-wrap: break-word; }
 .localized-reference { padding-top: 90px; }
+
+
+/* ========== FAQ SECTION ========== */
+.faq-section {
+    padding: 100px 0;
+    background: #FAF7F2;
+    border-top: 1px solid #ECE6DB;
+    border-bottom: 1px solid #ECE6DB;
+}
+
+.faq-container {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.faq-badge {
+    font-family: var(--font-nav);
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    color: var(--gold);
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.faq-header h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 4vw, 38px);
+    color: var(--black);
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.faq-header p {
+    color: var(--mid-gray);
+    font-size: 15px;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.faq-item {
+    background: var(--white);
+    border: 1px solid #E5DFD5;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.faq-item[open] {
+    border-color: var(--gold);
+    box-shadow: 0 4px 20px rgba(184, 144, 71, 0.08);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 26px;
+    font-family: var(--font-heading);
+    font-size: 18px;
+    color: var(--black);
+    cursor: pointer;
+    list-style: none;
+    font-weight: 500;
+    user-select: none;
+    transition: color 0.2s ease;
+}
+
+.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+.faq-question:hover {
+    color: var(--gold);
+}
+
+.faq-icon {
+    font-size: 22px;
+    color: var(--gold);
+    font-weight: 300;
+    flex-shrink: 0;
+    margin-left: 15px;
+    transition: transform 0.3s ease;
+}
+
+.faq-item[open] .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 26px 22px 26px;
+    color: #4A4A4A;
+    font-size: 15px;
+    line-height: 1.75;
+    border-top: 1px solid #F5EFE6;
+    margin-top: 4px;
+    padding-top: 16px;
+}
+
