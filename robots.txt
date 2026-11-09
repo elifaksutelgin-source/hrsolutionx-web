@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /kartvizit
+Disallow: /logo-preview
+Disallow: /site.webmanifest
 
 Sitemap: https://www.hrsolutionx.com/sitemap.xml

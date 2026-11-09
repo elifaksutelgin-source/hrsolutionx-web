@@ -24,6 +24,16 @@
     <meta property="og:title" content="HRSolutionX | Premium Executive Search & C-Level İşe Alım">
     <meta property="og:description" content="Liderlik, İK yapılanması ve organizasyonel dönüşümde şirketinizin hedeflerine eşlik ediyoruz. Üst düzey yönetici seçimi ve stratejik İK danışmanlığı alanında gizlilik odaklı premium hizmet.">
     <meta property="og:image" content="https://www.hrsolutionx.com/assets/images/og-image.jpg">
+    <meta property="og:site_name" content="HRSolutionX">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:alt" content="HRSolutionX Executive Search & C-Level Advisory">
+    <meta name="twitter:site" content="@hrsolutionx">
+    <meta name="twitter:image:alt" content="HRSolutionX Executive Search & C-Level Advisory">
+    <meta name="theme-color" content="#111111">
+    <link rel="manifest" href="/site.webmanifest">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -33,62 +43,78 @@
     <meta property="twitter:image" content="https://www.hrsolutionx.com/assets/images/og-image.jpg">
 
     <!-- Schema.org Structured Data (Google Kurum Kimliği) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "HRSolutionX",
-      "url": "https://www.hrsolutionx.com/",
-      "logo": "https://www.hrsolutionx.com/assets/images/logo.png",
-      "description": "Premium Executive Search and C-Level Recruitment Consultancy in Turkey.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Istanbul",
-        "addressCountry": "TR"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer service",
-        "email": "info@hrsolutionx.com"
-      }
-    }
-    </script>
+    
     <!-- =================================================== -->
 
 <link rel="alternate" hreflang="tr" href="https://www.hrsolutionx.com/"><link rel="alternate" hreflang="en" href="https://www.hrsolutionx.com/en"><link rel="alternate" hreflang="x-default" href="https://www.hrsolutionx.com/">
+    
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
+      "@graph": [
         {
-          "@type": "Question",
-          "name": "Executive Search (Üst Düzey Yönetici Araştırması) nedir?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Executive Search, şirketlerin C-Level (CEO, CFO, CHRO, CTO vb.) ve Yönetim Kurulu seviyesindeki kritik liderlik pozisyonları için pazarda aktif iş aramayan üst düzey yetenekleri titizlikle tespit edip kuruma kazandırma sürecidir."
+          "@type": "Organization",
+          "@id": "https://www.hrsolutionx.com/#organization",
+          "name": "HRSolutionX",
+          "url": "https://www.hrsolutionx.com/",
+          "logo": "https://www.hrsolutionx.com/assets/images/logo.png",
+          "image": "https://www.hrsolutionx.com/assets/images/og-image.jpg",
+          "description": "Premium Executive Search and C-Level Recruitment Consultancy in Turkey.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Istanbul",
+            "addressCountry": "TR"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "info@hrsolutionx.com"
           }
         },
         {
-          "@type": "Question",
-          "name": "HRSolutionX aday gizliliğini (NDA) nasıl sağlar?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Tüm yönetici seçimi ve yetenek havuzu süreçleri mutlak gizlilik sözleşmeleri (NDA) altında yürütülür. Adayların mevcut kurumlarında bilgileri paylaşılmaksızın ve adayın açık onayı alınmadan hiçbir üçüncü tarafla bilgi paylaşımı yapılmaz."
+          "@type": "WebSite",
+          "@id": "https://www.hrsolutionx.com/#website",
+          "url": "https://www.hrsolutionx.com/",
+          "name": "HRSolutionX",
+          "alternateName": ["HR Solution X", "HRSolution X"],
+          "publisher": {
+            "@id": "https://www.hrsolutionx.com/#organization"
           }
         },
         {
-          "@type": "Question",
-          "name": "Yönetici adayları yetenek havuzuna nasıl katılabilir?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "C-Level yöneticiler, direktörler ve yönetim kurulu adayları /cv sayfası üzerinden gizlilik çerçevesinde profillerini ileterek küresel arama ağımıza katılabilirler."
-          }
+          "@type": "FAQPage",
+          "@id": "https://www.hrsolutionx.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Executive Search (Üst Düzey Yönetici Araştırması) nedir?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Executive Search, şirketlerin C-Level (CEO, CFO, CHRO, CTO vb.) ve Yönetim Kurulu seviyesindeki kritik liderlik pozisyonları için pazarda aktif iş aramayan üst düzey yetenekleri titizlikle tespit edip kuruma kazandırma sürecidir."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "HRSolutionX aday gizliliğini (NDA) nasıl sağlar?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Tüm yönetici seçimi ve yetenek havuzu süreçleri mutlak gizlilik sözleşmeleri (NDA) altında yürütülür. Adayların mevcut kurumlarında bilgileri paylaşılmaksızın ve adayın açık onayı alınmadan hiçbir üçüncü tarafla bilgi paylaşımı yapılmaz."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Yönetici adayları yetenek havuzuna nasıl katılabilir?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "C-Level yöneticiler, direktörler ve yönetim kurulu adayları /cv sayfası üzerinden gizlilik çerçevesinde profillerini ileterek küresel arama ağımıza katılabilirler."
+              }
+            }
+          ]
         }
       ]
     }
     </script>
-
 </head>
 <body>
 

@@ -1,108 +1,159 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.hrsolutionx.com/</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.hrsolutionx.com/en</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.hrsolutionx.com/ust-duzey-yonetici-secimi</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hrsolutionx.com/kurumsal-ik-yapilanmasi</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hrsolutionx.com/organizasyonel-donusum</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hrsolutionx.com/yetenek-ve-performans-yonetimi</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hrsolutionx.com/yonetim-kurulu-ve-liderlik-danismanligi</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hrsolutionx.com/en/executive-search</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hrsolutionx.com/en/hr-structuring</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hrsolutionx.com/en/talent-and-performance</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hrsolutionx.com/en/organisational-transformation</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hrsolutionx.com/en/board-and-leadership-advisory</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.hrsolutionx.com/cv</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hrsolutionx.com/en/candidates</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.hrsolutionx.com/iletisim</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.hrsolutionx.com/en/contact</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.hrsolutionx.com/rapor-yonetim-kurulu</loc>
-    <priority>0.7</priority>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.hrsolutionx.com/makale-kurumsal-ceviklik</loc>
-    <priority>0.7</priority>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.hrsolutionx.com/analiz-yetenek-savaslari</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.hrsolutionx.com/gizlilik-politikasi</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.hrsolutionx.com/kullanim-sartlari</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.hrsolutionx.com/ust-duzey-yonetici-secimi</loc>
-    <lastmod>2026-10-13</lastmod>
-  </url>
-  <url>
-    <loc>https://www.hrsolutionx.com/kurumsal-ik-yapilanmasi</loc>
-    <lastmod>2026-10-13</lastmod>
-  </url>
-  <url>
-    <loc>https://www.hrsolutionx.com/organizasyonel-donusum</loc>
-    <lastmod>2026-10-13</lastmod>
-  </url>
-  <url>
-    <loc>https://www.hrsolutionx.com/yetenek-ve-performans-yonetimi</loc>
-    <lastmod>2026-10-13</lastmod>
-  </url>
-  <url>
-    <loc>https://www.hrsolutionx.com/yonetim-kurulu-ve-liderlik-danismanligi</loc>
-    <lastmod>2026-10-13</lastmod>
-  </url>
-  <url>
-    <loc>https://www.hrsolutionx.com/en</loc>
-    <lastmod>2026-10-13</lastmod>
-  </url>
-  <url>
-    <loc>https://www.hrsolutionx.com/iletisim</loc>
-    <lastmod>2026-10-13</lastmod>
-  </url>
-  <url>
-    <loc>https://www.hrsolutionx.com/en/contact</loc>
-    <lastmod>2026-10-13</lastmod>
-  </url>
-  <url>
-    <loc>https://www.hrsolutionx.com/en/candidates</loc>
-    <lastmod>2026-10-13</lastmod>
-  </url>
-  <url>
-    <loc>https://www.hrsolutionx.com/en/privacy</loc>
-    <lastmod>2026-10-13</lastmod>
-  </url>
-  <url>
-    <loc>https://www.hrsolutionx.com/en/terms</loc>
-    <lastmod>2026-10-13</lastmod>
-  </url>
-  <url>
-    <loc>https://www.hrsolutionx.com/en/executive-search</loc>
-    <lastmod>2026-10-13</lastmod>
-  </url>
-  <url>
-    <loc>https://www.hrsolutionx.com/en/hr-structuring</loc>
-    <lastmod>2026-10-13</lastmod>
-  </url>
-  <url>
-    <loc>https://www.hrsolutionx.com/en/talent-and-performance</loc>
-    <lastmod>2026-10-13</lastmod>
-  </url>
-  <url>
-    <loc>https://www.hrsolutionx.com/en/organisational-transformation</loc>
-    <lastmod>2026-10-13</lastmod>
-  </url>
-  <url>
-    <loc>https://www.hrsolutionx.com/en/board-and-leadership-advisory</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.hrsolutionx.com/en/leadership-for-the-boardroom</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.hrsolutionx.com/en/hrs-role-in-organisational-agility</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.hrsolutionx.com/en/attracting-and-retaining-executive-talent</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.hrsolutionx.com/gizlilik-politikasi</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.hrsolutionx.com/kullanim-sartlari</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.hrsolutionx.com/en/privacy</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.hrsolutionx.com/en/terms</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>

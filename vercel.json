@@ -8,8 +8,18 @@
       "permanent": true
     },
     {
+      "source": "/en.html",
+      "destination": "/en",
+      "permanent": true
+    },
+    {
       "source": "/cv.html",
       "destination": "/cv",
+      "permanent": true
+    },
+    {
+      "source": "/iletisim.html",
+      "destination": "/iletisim",
       "permanent": true
     },
     {
@@ -28,6 +38,31 @@
       "permanent": true
     },
     {
+      "source": "/ust-duzey-yonetici-secimi.html",
+      "destination": "/ust-duzey-yonetici-secimi",
+      "permanent": true
+    },
+    {
+      "source": "/kurumsal-ik-yapilanmasi.html",
+      "destination": "/kurumsal-ik-yapilanmasi",
+      "permanent": true
+    },
+    {
+      "source": "/organizasyonel-donusum.html",
+      "destination": "/organizasyonel-donusum",
+      "permanent": true
+    },
+    {
+      "source": "/yetenek-ve-performans-yonetimi.html",
+      "destination": "/yetenek-ve-performans-yonetimi",
+      "permanent": true
+    },
+    {
+      "source": "/yonetim-kurulu-ve-liderlik-danismanligi.html",
+      "destination": "/yonetim-kurulu-ve-liderlik-danismanligi",
+      "permanent": true
+    },
+    {
       "source": "/gizlilik-politikasi.html",
       "destination": "/gizlilik-politikasi",
       "permanent": true
@@ -36,9 +71,32 @@
       "source": "/kullanim-sartlari.html",
       "destination": "/kullanim-sartlari",
       "permanent": true
+    },
+    {
+      "source": "/en/:path*.html",
+      "destination": "/en/:path*",
+      "permanent": true
     }
   ],
   "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/favicon(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
     {
       "source": "/(.*)",
       "headers": [
@@ -53,6 +111,14 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=()"
         }
       ]
     }
