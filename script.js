@@ -47,6 +47,13 @@ document.querySelectorAll('form[data-managed-form]').forEach(form => {
       const response = await fetch(form.action, {method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
       if (!response.ok) throw new Error('Form was not accepted');
       form.reset();
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', {
+          event_category: 'engagement',
+          event_label: candidate ? 'yetenek_havuzu_basvuru' : 'iletisim_talep_formu',
+          value: 1
+        });
+      }
       status.textContent = english
         ? (candidate ? 'Your profile has been received. We may contact you about a relevant opportunity. Submission does not guarantee an interview or placement.' : 'Your enquiry has been received. Thank you for sharing your needs.')
         : (candidate ? 'Profiliniz alındı. Uygun bir fırsat oluşursa sizinle iletişime geçilebilir. Başvuru, görüşme veya işe yerleştirme garantisi değildir.' : 'Görüşme talebiniz alındı. İhtiyacınızı paylaştığınız için teşekkür ederiz.');
