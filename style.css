@@ -1322,5 +1322,10 @@ html[lang="en"] .service-detail h1 { overflow-wrap: break-word; }
     border-top: 1px solid #F5EFE6;
     margin-top: 4px;
     padding-top: 16px;
+    text-align: justify;
+}
+
+.faq-answer p {
+    text-align: justify;
 }
 
